@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live Digital Clock</title>
+    <style>
+      body {
+        background-color: black;
+      }
+
+      #clock {
+        font-size: 80px;
+        font-weight: bold;
+        color: lime;
+        text-align: center;
+        margin-top: 150px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock"></div>
+
+    <script>
+      function updateClock() {
+        let now = new Date();
+        let hours = String(now.getHours()).padStart(2, "0");
+        let minutes = String(now.getMinutes()).padStart(2, "0");
+        let seconds = String(now.getSeconds()).padStart(2, "0");
+
+        let timeString = hours + " : " + minutes + " : " + seconds;
+
+        document.getElementById("clock").innerHTML = timeString;
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>
